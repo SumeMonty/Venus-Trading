@@ -1,0 +1,77 @@
+<?php
+
+			$sql_query = "SELECT id, SUBSTRING(description, 1, 30) AS shortdesc, description, brand, price, img FROM `products`";
+			if (isset($_POST['asus-btn'])) {
+				// echo $_POST['asus-btn']	;
+				$sql_query = $sql_query . "WHERE brand IN('ASUS')";
+			}
+			if (isset($_POST['hp-btn'])) {
+				// echo $_POST['hp-btn']	;
+				$sql_query = $sql_query . "WHERE brand IN('HP')";
+			}
+			if (isset($_POST['acer-btn'])) {
+				// echo $_POST['acer-btn']	;
+				$sql_query = $sql_query . "WHERE brand IN('ACER')";
+			}
+			if (isset($_POST['dell-btn'])) {
+				$sql_query = $sql_query . "WHERE brand IN('DELL')";
+			}
+			if (isset($_POST['search-btn'])) {
+				$searchedItem = $_POST['search-value'];
+				$selectedBrand = $_POST['brand-select'];
+				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE description LIKE '%$searchedItem%'";
+				if ($selectedBrand != "ALL") {
+					$sql_query = $sql_query . " AND brand = '$selectedBrand'";
+					// echo $sql_query;
+				}
+			}
+
+			$select_products = $conn->prepare($sql_query);
+			$select_products->execute();
+
+			if ($select_products->rowCount() > 0) {
+				while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
+					?>
+					<!-- product -->
+					<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
+						<!-- <form action="quick-view.php" method="POST"> -->
+							<!-- <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>"> -->
+							<p hidden class="product-brand">
+								<?= $fetch_product['brand']; ?>
+							</p>
+							<div class="product-img">
+								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
+							</div>
+							<div class="product-body">
+								<h3 class="product-name"><a href="#">
+										<?= $fetch_product['brand']; ?>
+
+										<?= $fetch_product['shortdesc']; ?>....
+									</a></h3>
+								<h4 class="product-price">₹
+									<?= $fetch_product['price']; ?>
+								</h4>
+								<button class="btn btn-success"><a
+										href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a></button>
+								<div class="product-btns">
+									<button  class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to
+											wishlist</span></button>
+
+									<button class="quick-view"><a href="quick-view.php?pid=<?= $fetch_product['id']; ?>"><i class="fa fa-eye"></i></a><span
+											class="tooltipp">quick
+											view</span></button>
+								</div>
+							</div>
+						<!-- </form> -->
+						
+					</div>
+					<!-- /product -->
+
+					<?php
+				}
+			} else {
+				echo '<p class="empty">no products found!</p>';
+			}
+			?>
