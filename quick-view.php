@@ -56,92 +56,9 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
 	<!-- HEADER -->
-	<header>
-		<!-- TOP HEADER -->
-		<div id="top-header">
-			<marquee behavior="" direction="">+91 9850145588 | venustrading@gmail.com | Shop no.4,Bk No.831,Nr A-1
-				Sweets
-				Kalyan-Ambernath Road,Shivaji Chowk,Ulhasnagar-421003</marquee>
-		</div>
-		<!-- /TOP HEADER -->
-
-		<!-- MAIN HEADER -->
-		<div id="header">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<!-- LOGO -->
-					<div class="col-md-3">
-						<div class="header-logo">
-							<a href="#" class="logo">
-								<img height="20%" width="49%" src="./img/venus-black-filled.png" alt="Venus Trading">
-							</a>
-						</div>
-					</div>
-					<!-- /LOGO -->
-
-					<!-- SEARCH BAR -->
-					<div class="col-md-6">
-						<div class="header-search">
-							<form method="POST">
-								<select name="brand-select" class="brand-select">
-									<option value="ALL">All Brands</option>
-									<option value="ASUS">ASUS</option>
-									<option value="HP">HP</option>
-									<option value="ACER">ACER</option>
-									<option value="DELL">DELL</option>
-								</select>
-								<input class="input" name="search-value" placeholder="Search here"
-									value="<?php echo isset($_POST['search-value']) ? htmlspecialchars($_POST['search-value'], ENT_QUOTES) : ''; ?>">
-								<input type="submit" name="search-btn" class="search-btn" value="Search">
-								<!-- <button  class="search-btn">Search</button> -->
-							</form>
-						</div>
-					</div>
-					<!-- /SEARCH BAR -->
-
-					<!-- ACCOUNT -->
-					<div class="col-md-3 clearfix">
-						<div class="header-ctn">
-							<!-- Wishlist -->
-							<div>
-								<a href="#">
-									<i class="fa fa-heart-o"></i>
-									<span>Your Wishlist</span>
-									<!-- <div class="qty">2</div> -->
-								</a>
-							</div>
-							<!-- /Wishlist -->
-
-							<!-- Cart -->
-							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-									<i class="fa fa-shopping-cart"></i>
-									<span>Your Cart</span>
-									<!-- <div class="qty">3</div> -->
-								</a>
-							</div>
-							<!-- /Cart -->
-
-							<!-- Menu Toogle -->
-							<div class="menu-toggle">
-								<a href="#">
-									<i class="fa fa-bars"></i>
-									<span>Menu</span>
-								</a>
-							</div>
-							<!-- /Menu Toogle -->
-						</div>
-					</div>
-					<!-- /ACCOUNT -->
-				</div>
-				<!-- row -->
-			</div>
-			<!-- container -->
-		</div>
-		<!-- /MAIN HEADER -->
-	</header>
+	<?php
+	include 'components/header.php';
+	?>
 	<!-- /HEADER -->
 
 	<!-- NAVIGATION -->
@@ -153,7 +70,7 @@ if (isset($_SESSION['user_id'])) {
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li><a href="index.php">Home</a></li>
-					<li class="active"><a href="">Laptop</a></li>
+					<li><a href="Laptop.php">Laptop</a></li>
 					<li><a href="contact.php">Contact</a></li>
 
 				</ul>
@@ -186,245 +103,70 @@ if (isset($_SESSION['user_id'])) {
 	<!-- /BREADCRUMB -->
 
 	<!-- SECTION -->
-	<div class="products laptops">
-		<div class="refinements">
-			<div class="brand-refinements">
-				<h5>Brand</h5>
-				<ul class="list-brand">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" name="asus" value="" id="asus">
-						<label class="form-check-label" for="asus">ASUS</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="hp">
-						<label class="form-check-label" for="hp">HP</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="acer">
-						<label class="form-check-label" for="acer">ACER</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="dell">
-						<label class="form-check-label" for="acer">DELL</label>
-					</li>
-				</ul>
 
-			</div>
-			<div class="ram-size-refinements">
-				<h5>RAM</h5>
-				<ul class="list-ram-size">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="4gb">
-						<label class="form-check-label" for="4gb">4 GB</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id=" 8gb">
-						<label class="form-check-label" for="8gb">8 GB</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="16gb">
-						<label class="form-check-label" for="16gb">16 GB</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="32gb">
-						<label class="form-check-label" for="32gb">32 GB</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="64gb">
-						<label class="form-check-label" for="64gb">64 GB</label>
-					</li>
-				</ul>
+	<div class="container">
+		<div class="quick-view">
 
-			</div>
-			<div class="ram-tech-refinements">
-				<h5>RAM Memory Technology</h5>
-				<ul class="list-ram-tech">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr3">
-						<label class="form-check-label" for="ddr3">DDR3</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr4">
-						<label class="form-check-label" for="ddr4">DDR4</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr5">
-						<label class="form-check-label" for="ddr5">DDR5</label>
-					</li>
-				</ul>
-
-			</div>
-			<div class="disk-refinements">
-				<h5>Hard Disk Type</h5>
-				<ul class="list-ram-tech">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="hdd">
-						<label class="form-check-label" for="hdd">HDD</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ssd">
-						<label class="form-check-label" for="ssd">SSD</label>
-					</li>
-
-				</ul>
-
-			</div>
-		</div>
-		<!-- container -->
-		<div class="box-container">
-
+			<h1 class="heading">Quick View</h1>
 
 			<?php
-			$sql_query = "SELECT * FROM `products`";
-			
-			if (isset($_POST['search-btn'])) {
-				$searchedItem = $_POST['search-value'];
-				$selectedBrand = $_POST['brand-select'];
-				$sql_query = $sql_query . " WHERE description LIKE '%$searchedItem%'";
-				if($selectedBrand != "ALL") {
-					$sql_query = $sql_query . " AND brand = '$selectedBrand'";
-					// echo $sql_query;
-				}
-			}
-			
-			$select_products = $conn->prepare($sql_query);
-			$select_products->execute();
-
+			$pid = $_GET['pid'];
+			$select_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
+			$select_products->execute([$pid]);
 			if ($select_products->rowCount() > 0) {
 				while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 					?>
-					<!-- product -->
-					<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-						<p hidden class="product-brand">
-							<?= $fetch_product['brand']; ?>
-						</p>
-						<div class="product-img">
-							<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">
-									<?= $fetch_product['brand']; ?>
-									&nbsp;<?= $fetch_product['description']; ?>
-								</a></h3>
-							<h4 class="product-price">₹
-								<?= $fetch_product['price']; ?>
-							</h4>
-							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to
-										wishlist</span></button>
-								<button class="add-to-compare"><a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i class="fa fa-shopping-cart"></i><span class="tooltipp">Buy Now</span></a></button>
-								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-										view</span></button>
+					<form action="" method="post" class="box">
+						<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+						<input type="hidden" name="description" value="<?= $fetch_product['description']; ?>">
+						<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+						<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+						<div class="row">
+							<div class="image-container">
+								<div class="main-image">
+									<img width="20%" height="100%" src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								</div>
+								<!-- <div class="sub-image">
+	<img src="img/<?= $fetch_product['image_01']; ?>" alt="">
+	<img src="img/<?= $fetch_product['image_02']; ?>" alt="">
+	<img src="img/<?= $fetch_product['image_03']; ?>" alt="">
+ </div> -->
+							</div>
+							<div class="content">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
+								</div>
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<!-- <div class="details"><?= $fetch_product['details']; ?></div> -->
+								<div class="flex-btn">
+									<input type="submit" value="Add To Cart" class="btn" name="add-to-cart">
+									<input class="btn option-btn" type="submit" name="buy-now" value="Buy Now">
+								</div>
 							</div>
 						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-					<!-- /product -->
-
+					</form>
 					<?php
 				}
 			} else {
-				echo '<p class="empty">no products found!</p>';
+				echo '<p class="empty">no products added yet!</p>';
 			}
 			?>
 
 		</div>
-		<!-- /row -->
 	</div>
-	<!-- /container -->
-	</div>
+
 	<!-- /SECTION -->
 
 	<!-- FOOTER -->
-	<footer id="footer">
-		<!-- top footer -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">About Us</h3>
-							<p>We procure products in bulk  and distribute them to retailers, businesses, or individual customers. We play a crucial role in the supply chain by efficiently managing inventory, and ensuring timely delivery of computer products to meet market demand.</p>
-							
-						</div>
-					</div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Categories</h3>
-							<ul class="footer-links">
-								<li><a href="Laptop.php">Laptops</a></li>
-								<li><a href="Laptop.php">ASUS</a></li>
-								<li><a href="Laptop.php">HP</a></li>
-								<li><a href="Laptop.php">ACER</a></li>
-								<li><a href="Laptop.php">DELL</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="clearfix visible-xs"></div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Information</h3>
-							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>Shop no.4,Bk No.831,Nr A-1 Sweets
-										Kalyan-Ambernath Road,Shivaji Chowk,Ulhasnagar-421003</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+91 9850145588</a></li>
-								<li><a href="#"><i class="fa fa-envelope-o"></i>venustrading@gmail.com</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<!-- <div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Service</h3>
-							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Track My Order</a></li>
-								<li><a href="#">Help</a></li>
-							</ul>
-						</div>
-					</div> -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /top footer -->
-
-		<!-- bottom footer -->
-		<div id="bottom-footer" class="section">
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<ul class="footer-payments">
-							<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-							<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-						</ul>
-						<span class="copyright">
-							Copyright &copy;
-							<!-- <script>document.write(new Date().getFullYear());</script> --> All rights reserved
-						</span>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /bottom footer -->
-	</footer>
+	<?php
+	include 'components/footer.php';
+	?>
 	<!-- /FOOTER -->
 
 	<!-- jQuery Plugins -->
