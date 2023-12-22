@@ -29,6 +29,9 @@ if (isset($_SESSION['user_id'])) {
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 
@@ -45,19 +48,12 @@ if (isset($_SESSION['user_id'])) {
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
 </head>
 
 <body>
 	<!-- HEADER -->
 	<?php
-		include 'components/header.php';
+	include 'components/header.php';
 	?>
 	<!-- /HEADER -->
 
@@ -68,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
 			<!-- responsive-nav -->
 			<div id="responsive-nav">
 				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav">
+				<ul class="main-nav nav navbar-nav navigator">
 					<li class="active"><a href="">Home</a></li>
 					<li><a href="Laptop.php">Laptop</a></li>
 					<li><a href="contact.php">Contact</a></li>
@@ -76,6 +72,7 @@ if (isset($_SESSION['user_id'])) {
 				</ul>
 				<!-- /NAV -->
 			</div>
+
 			<!-- /responsive-nav -->
 		</div>
 		<!-- /container -->
@@ -87,7 +84,7 @@ if (isset($_SESSION['user_id'])) {
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			<div class="row">
+			<div class="row products">
 
 				<!-- section title -->
 				<div class="col-md-12">
@@ -109,193 +106,169 @@ if (isset($_SESSION['user_id'])) {
 				<!-- Products tab & slick -->
 				<div class="box-container">
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'HP'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInLeft">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'ACER'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInLeft">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'HP'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInRight">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'ACER'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInRight">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 
 				</div>
 				<!-- Products tab & slick -->
@@ -358,7 +331,7 @@ if (isset($_SESSION['user_id'])) {
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			<div class="row">
+			<div class="row products">
 
 				<!-- section title -->
 				<div class="col-md-12">
@@ -372,193 +345,169 @@ if (isset($_SESSION['user_id'])) {
 				<!-- Products tab & slick -->
 				<div class="box-container">
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'HP'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInLeft">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'ACER'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInUp">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'HP'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInLeft">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 					<?php
-					$sql_query = "SELECT * FROM `products` WHERE brand = 'ACER'";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img FROM `products` WHERE id = " . rand(1, 30);
 
 					$select_products = $conn->prepare($sql_query);
 					$select_products->execute();
 					if ($select_products->rowCount() > 0) {
-						$fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)
+						while ($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)) {
 							?>
-						<!-- product -->
-						<div class="product" data-brand="<?= $fetch_product['brand']; ?>">
-							<p hidden class="product-brand">
-								<?= $fetch_product['brand']; ?>
-							</p>
-							<div class="product-img">
-								<img width="100%" height="50%" src="./img/<?= $fetch_product['img']; ?>.jpg" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-name"><a href="#">
-										<?= $fetch_product['brand']; ?>
-										&nbsp;
-										<?= $fetch_product['description']; ?>
-									</a></h3>
-								<h4 class="product-price">₹
-									<?= $fetch_product['price']; ?>
-								</h4>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-											to
-											wishlist</span></button>
-									<button class="add-to-compare"><a
-											href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"><i
-												class="fa fa-shopping-cart"></i><span class="tooltipp">Buy
-												Now</span></a></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-											view</span></button>
+							<form action="" method="post" class="box wow animate__fadeInUp">
+								<input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
+								<input type="hidden" name="name"
+									value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
+								<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
+								<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
+								<button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+								<a href="quick-view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+								<img src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+								<div class="name">
+									<?= $fetch_product['description']; ?>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-						<!-- /product -->
-						<?php
+								<div class="flex">
+									<div class="price"><span>₹</span>
+										<?= $fetch_product['price']; ?><span>/-</span>
+									</div>
+									<input type="number" name="qty" class="qty" min="1" max="99"
+										onkeypress="if(this.value.length == 2) return false;" value="1">
+								</div>
+								<button type="submit" class="btn" name="buy-now">
+									<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+										target="_blank">Buy
+										Now</a>
+								</button>
+							</form>
+							<?php
+						}
 					} else {
 						echo '<p class="empty">no products found!</p>';
 					}
 					?>
+
+
 
 				</div>
 				<!-- Products tab & slick -->
@@ -577,7 +526,7 @@ if (isset($_SESSION['user_id'])) {
 	<!-- FOOTER -->
 	<?php
 	include 'components/footer.php'
-	?>
+		?>
 	<!-- /FOOTER -->
 
 	<!-- jQuery Plugins -->
@@ -586,6 +535,16 @@ if (isset($_SESSION['user_id'])) {
 	<script src="js/slick.min.js"></script>
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+  <script>
+    let wow = new WOW({
+      animateClass: 'animate__animated',
+    });
+    wow.init();
+  </script>
 	<script src="js/main.js"></script>
 
 </body>
