@@ -40,7 +40,7 @@
 <body>
 	<!-- HEADER -->
 	<?php
-		include 'components/header.php';
+	include 'components/header.php';
 	?>
 	<!-- /HEADER -->
 
@@ -51,7 +51,7 @@
 			<!-- responsive-nav -->
 			<div id="responsive-nav">
 				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav">
+				<ul class="main-nav nav navbar-nav navigator">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="Laptop.php">Laptop</a></li>
 					<li class="active"><a href="">Contact</a></li>
@@ -89,8 +89,11 @@
 	<div class="container">
 		<div class="goodwill">
 			<h2>Goodwill Earned</h2>
-			<img class="goodwill-img" width="80%" height="100%" src="img/goodwill1.jpg" alt="">
-			<!-- <h4>Hon. President(Asus) with Hon. CEO</h4> -->
+			<div class="gallery">
+				<img class="goodwill-img" src="img/goodwill1.jpg" alt="">
+				<img class="goodwill-img" src="img/goodwill2.jpg" alt="">
+				<img class="goodwill-img" src="img/goodwill3.jpg" alt="">
+			</div>
 		</div>
 	</div>
 	<!-- <div class="container"> -->
@@ -117,10 +120,11 @@
 	<!-- FOOTER -->
 	<?php
 	include 'components/footer.php'
-	?>
+		?>
 	<!-- /FOOTER -->
 
 	<script>
+		/*
 		var i = 0;
 		var goodImg = document.querySelector('.goodwill-img');
 		var time = 2000;
@@ -141,7 +145,7 @@
 			}
 
 			setTimeout("changeImg()", 2000);
-		}
+		}*/
 
 	</script>
 	<!-- jQuery Plugins -->
