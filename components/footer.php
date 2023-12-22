@@ -21,7 +21,8 @@
 							<h3 class="footer-title">Trusted</h3>
 							<h5 class="footer-sub-title">Reviews</h5>
 							<ul class="footer-links">
-								<li><a href="https://g.co/kgs/qaarqH" target="_blank"><i class="fa-brands fa-google"></i>Google</a></li>
+							<!-- <i class="fa-brands fa-google"></i>   -->
+								<li><a href="https://g.co/kgs/qaarqH" target="_blank">Google</a></li>
 								<li><a href="https://jsdl.in/DT-43BU4TV1" target="_blank">Justdial</a></li>								
 							</ul>
 						</div>

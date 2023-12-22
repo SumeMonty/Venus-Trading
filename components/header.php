@@ -1,20 +1,45 @@
-<!-- HEADER -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Venus Trading</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+	<!-- HEADER -->
 <header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
-			<marquee behavior="" direction="">+91 9850145588 | venustrading@gmail.com | Office No. 14, 1st Floor, Babu Building, Opp. Police Station, Lamington Rd, Mumbai - 400 007</marquee>
-			<!-- <div class="container">
-				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-phone"></i> +91 9850145588</a></li>
-					<li><a href="#"><i class="fa fa-envelope-o"></i> venustrading@gmail.com</a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i> Shop no.4,Bk No.831,Nr A-1 Sweets
-							Kalyan-Ambernath Road,Shivaji Chowk,Ulhasnagar-421003</a></li>
-				</ul>
-				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-					<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-				</ul>
-			</div> -->
+			<marquee behavior="" direction="">+91 9850145588 | venustrading@gmail.com | HO - Office No. 14, 1st Floor, Babu Building, Opp. Police Station, Lamington Rd, Mumbai - 400 007</marquee>
 		</div>
 		<!-- /TOP HEADER -->
 
@@ -37,16 +62,18 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
-								<select class="brand-select">
-									<option value="0">All Brands</option>
-									<option value="1">ASUS</option>
-									<option value="1">HP</option>
-									<option value="1">ACER</option>
-									<option value="1">DELL</option>
+							<form method="POST">
+								<select name="brand-select" class="brand-select">
+									<option value="ALL">All Brands</option>
+									<option value="ASUS">ASUS</option>
+									<option value="HP">HP</option>
+									<option value="ACER">ACER</option>
+									<option value="DELL">DELL</option>
 								</select>
-								<input class="input" placeholder="Search here">
-								<button class="search-btn">Search</button>
+								<input class="input" name="search-value" placeholder="Search here"
+									value="<?php echo isset($_POST['search-value']) ? htmlspecialchars($_POST['search-value'], ENT_QUOTES) : ''; ?>">
+								<input type="submit" name="search-btn" class="search-btn" value="Search">
+								<!-- <button  class="search-btn">Search</button> -->
 							</form>
 						</div>
 					</div>
@@ -127,3 +154,4 @@
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
+</body>
