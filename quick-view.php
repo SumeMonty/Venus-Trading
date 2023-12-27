@@ -145,8 +145,8 @@ if (isset($_SESSION['user_id'])) {
 								</div>
 								<!-- <div class="details"><?= $fetch_product['details']; ?></div> -->
 								<div class="flex-btn">
-									<input type="submit" value="Add To Cart" class="btn" name="add-to-cart">
-									<input class="btn option-btn" type="submit" name="buy-now" value="Buy Now">
+									<input type="submit" value="Add To Cart" class="btn btn-primary" name="add-to-cart">
+									<input class="btn btn-success" type="submit" name="buy-now" value="Buy Now">
 								</div>
 							</div>
 						</div>
