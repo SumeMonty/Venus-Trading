@@ -6,7 +6,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-12 col-sm-12">
 						<div class="footer">
 							<h3 class="footer-title">About Us</h3>
 							<p class="footer-description">We procure products in bulk and distribute them to retailers, businesses, or individual
@@ -16,7 +16,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-12 col-sm-12">
 						<div class="footer">
 							<h3 class="footer-title">Trusted</h3>
 							<h5 class="footer-sub-title">Reviews</h5>
@@ -30,7 +30,7 @@
 
 					<div class="clearfix visible-xs"></div>
 
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-12 col-sm-12">
 						<div class="footer">
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
@@ -47,7 +47,7 @@
 						</div>
 					</div>
 
-					<!-- <div class="col-md-3 col-xs-6">
+					<!-- <div class="col-md-4 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
@@ -73,17 +73,10 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<ul class="footer-payments">
-							<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-							<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-							<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>							
+							<li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>							
+							<li><a href="#"><i class="fa-brands fa-google"></i></a></li>							
 						</ul>
-						<span class="copyright">
-							Copyright &copy;
-							<!-- <script>document.write(new Date().getFullYear());</script> --> All rights reserved
-						</span>
 					</div>
 				</div>
 				<!-- /row -->
