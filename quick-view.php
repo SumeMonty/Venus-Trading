@@ -91,7 +91,7 @@ if (isset($_SESSION['user_id'])) {
 				<div class="col-md-12">
 					<h3 class="breadcrumb-header">Venus trading</h3>
 					<ul class="breadcrumb-tree">
-						<li><a href="index.php">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li class="active">Laptop</li>
 					</ul>
 				</div>
@@ -134,6 +134,8 @@ if (isset($_SESSION['user_id'])) {
 							</div>
 							<div class="content">
 								<div class="name">
+									<?= $fetch_product['brand']; ?> 
+									<?= $fetch_product['make']; ?> 
 									<?= $fetch_product['description']; ?>
 								</div>
 								<div class="flex">
