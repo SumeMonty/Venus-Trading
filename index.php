@@ -72,7 +72,7 @@ if (isset($_SESSION['user_id'])) {
 				<!-- NAV -->
 				<ul class="main-nav nav nav-pills navigator">
 					<li class="nav-item active"><a href="">Home</a></li>
-					<li class="nav-item"><a href="Laptop.php">Laptop</a></li>
+					<!-- <li class="nav-item"><a href="Laptop.php">Laptop</a></li> -->
 					<li class="nav-item"><a href="contact.php">Contact</a></li>
 				</ul>
 				<!-- /NAV -->
@@ -173,10 +173,12 @@ if (isset($_SESSION['user_id'])) {
 				<form>
 					<div class="row">
 						<div class="col">
-							<input type="number" name="min-price" class="form-control min-price" placeholder="Min" value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['min-price'], ENT_QUOTES) : ''; ?>">
+							<input type="number" name="min-price" class="form-control min-price" placeholder="Min"
+								value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['min-price'], ENT_QUOTES) : ''; ?>">
 						</div>
 						<div class="col">
-							<input type="number" name="max-price" class="form-control max-price" placeholder="Max" value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['max-price'], ENT_QUOTES) : ''; ?>">
+							<input type="number" name="max-price" class="form-control max-price" placeholder="Max"
+								value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['max-price'], ENT_QUOTES) : ''; ?>">
 						</div>
 						<div class="col">
 							<input type="submit" class="btn btn-primary" value="Go"></input>
@@ -187,7 +189,37 @@ if (isset($_SESSION['user_id'])) {
 			</div>
 			<div class="ram-size-refinements">
 				<h3>RAM</h3>
-				<ul class="list-ram-size">
+				<!-- <div class="d-flex"> -->
+
+				<!-- <div class="btn-group">
+						<button type="button" class="btn btn-info">Ram</button>
+						<button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split"
+							data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+							<span class="visually-hidden">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">Separated link</a></li>
+						</ul>
+					</div> -->
+				<form name="ramform">
+					<select name="ramformselect" onchange="ramformsubmit()" class="form-select col-md-10">
+						<option value="NULL" selected><?php echo isset($_GET['ramformselect']) ? htmlspecialchars($_GET['ramformselect'], ENT_QUOTES) : 'Choose Ram Size'; ?></option>
+						<option onclick="" value="4gb">4 GB</option>
+						<option onclick="" value="8gb">8 GB</option>
+						<option onclick="" value="16gb">16 GB</option>
+						<option onclick="" value="32gb">32 GB</option>
+						<option onclick="" value="64gb">64 GB</option>
+					</select>
+				</form>
+				
+				<!-- </div> -->
+				<!-- <ul class="list-ram-size">
 					<li>
 						<input class="form-check-input me-1" type="checkbox" value="" id="fourGBRef"
 							onchange="ram_ref_check()">
@@ -213,47 +245,26 @@ if (isset($_SESSION['user_id'])) {
 							onchange="ram_ref_check()">
 						<label class="form-check-label" for="64gb">64 GB</label>
 					</li>
-					<!-- <li>
+				<li>
 						<label class="form-check-label" id="clearRam" style="display: none; cursor: pointer;">Clear
 							All</label>
-					</li> -->
-				</ul>
+					</li>
+				</ul> -->
 
 
 			</div>
-			<!-- <div class="ram-tech-refinements">
-				<h5>RAM Memory Technology</h5>
-				<ul class="list-ram-tech">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr3">
-						<label class="form-check-label" for="ddr3">DDR3</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr4">
-						<label class="form-check-label" for="ddr4">DDR4</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ddr5">
-						<label class="form-check-label" for="ddr5">DDR5</label>
-					</li>
-				</ul>
 
-			</div> -->
-			<!-- <div class="disk-refinements">
-				<h5>Hard Disk Type</h5>
-				<ul class="list-ram-tech">
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="hdd">
-						<label class="form-check-label" for="hdd">HDD</label>
-					</li>
-					<li>
-						<input class="form-check-input me-1" type="checkbox" value="" id="ssd">
-						<label class="form-check-label" for="ssd">SSD</label>
-					</li>
 
-				</ul>
-
-			</div> -->
+			<div class="processor-refinements">
+				<h3>Processor</h3>
+				<form name="processorform">
+					<select name="processorformselect" onchange="processorformsubmit()" class="form-select col-md-10">
+						<option value="NULL" selected><?php echo isset($_GET['processorformselect']) ? htmlspecialchars($_GET['processorformselect'], ENT_QUOTES) : 'Choose Processor'; ?></option>
+						<option onclick="" value="amd">AMD</option>
+						<option onclick="" value="intel">INTEL</option>
+					</select>
+				</form>
+			</div>
 		</div>
 		<button type="button" class="btn btn-primary responsive-filter" data-toggle="button" aria-pressed="false"
 			autocomplete="off" onclick="toggleref()">
@@ -265,14 +276,15 @@ if (isset($_SESSION['user_id'])) {
 
 
 			<?php
-			$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram FROM `products`";
-			if(isset($_GET['min-price']) && $_GET['min-price'] != null) {
+			$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products`";
+			if (isset($_GET['min-price']) && $_GET['min-price'] != null) {
 				$min_price = $_GET['min-price'];
 				if (isset($_GET['max-price']) && $_GET['max-price'] != null) {
 					$max_price = $_GET['max-price'];
 					$sql_query .= " WHERE price BETWEEN $min_price AND $max_price";
-				} else $sql_query .= " WHERE price > $min_price";
-				
+				} else
+					$sql_query .= " WHERE price > $min_price";
+
 
 			} else if (isset($_GET['max-price']) && $_GET['max-price'] != null) {
 				$max_price = $_GET['max-price'];
@@ -284,12 +296,12 @@ if (isset($_SESSION['user_id'])) {
 			$ram_string = '';
 			if (isset($_GET['brand'])) {
 				$brand_string = implode(',', $_GET['brand']);
-				if ($ram_string != '') {
-					$sql_query .= ' AND brand IN($brand_string)';
+				// if ($ram_string != '') {
+				// 	$sql_query .= ' AND brand IN($brand_string)';
 
-				} else {
-					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram FROM `products` WHERE brand IN($brand_string)";
-				}
+				// } else {
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE brand IN($brand_string)";
+				// }
 				// echo $sql_query;
 				// run_my_query($conn, $sql_query);
 			} else {
@@ -299,17 +311,32 @@ if (isset($_SESSION['user_id'])) {
 
 
 
-			if (isset($_GET['ram'])) {
-				$ram_string = implode(',', $_GET['ram']);
-				// echo $ram_string;
+			if (isset($_GET['ramformselect'])) {
+				$ramformselectvalue = $_GET['ramformselect'];
+
 				if ($brand_string != '') {
-					$sql_query = $sql_query . " AND ram IN($ram_string)";
+					if($ramformselectvalue != 'NULL') $sql_query .= " AND ram = '$ramformselectvalue'";
 				} else {
-					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram FROM `products` WHERE ram IN
-				($ram_string)";
+					if($ramformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE ram = '$ramformselectvalue'";
 				}
 				// run_my_query($conn, $sql_query);
-			} else {
+			// } else {
+				// echo 'URL parameter does not exist';
+				// run_my_query($conn, $sql_query);
+			}
+			
+			if (isset($_GET['processorformselect'])) {
+				$processorformselectvalue = $_GET['processorformselect'];
+
+				if ($brand_string != '') {
+					// if($processorformselectvalue != 'NULL') $sql_query .= " AND processor = '$processorformselectvalue'";
+					if($processorformselectvalue != 'NULL') $sql_query .= " AND description LIKE = '%$processorformselectvalue%'";
+				} else {
+					// if($processorformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE processor = '$processorformselectvalue'";
+					if($processorformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE = '%$processorformselectvalue%'";
+				}
+				// run_my_query($conn, $sql_query);
+			// } else {
 				// echo 'URL parameter does not exist';
 				// run_my_query($conn, $sql_query);
 			}
@@ -342,7 +369,7 @@ if (isset($_SESSION['user_id'])) {
 			if (isset($_POST['search-btn'])) {
 				$searchedItem = $_POST['search-value'];
 				$selectedBrand = $_POST['brand-select'];
-				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram FROM `products` WHERE description LIKE '%$searchedItem%'";
+				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE '%$searchedItem%'";
 				if ($selectedBrand != "ALL") {
 					$sql_query = $sql_query . " AND brand = '$selectedBrand'";
 					// echo $sql_query;
@@ -351,8 +378,6 @@ if (isset($_SESSION['user_id'])) {
 			}
 
 			// echo "Query: " . $sql_query;
-			// echo "Min:" . $_GET['min-price'];
-			// echo "Max:" . $_GET['max-price'];
 			
 			run_my_query($conn, $sql_query);
 
@@ -369,15 +394,19 @@ if (isset($_SESSION['user_id'])) {
 								value="<?= $fetch_product['brand']; ?> <?= $fetch_product['shortdesc']; ?>">
 							<input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
 							<input type="hidden" name="image" value="<?= $fetch_product['img']; ?>">
-							<button class="laptop-series" name="laptop-series">Omen</button>
+							<button class="laptop-series" name="laptop-series">
+								<?= $fetch_product['make']; ?>
+							</button>
 							<!-- <button class="brand-label" name="brand-label">HP</button> -->
-							
-							<img onclick="window.location.href='quick-view.php?pid=<?= $fetch_product['id']; ?>'" src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
+
+							<img onclick="window.location.href='quick-view.php?pid=<?= $fetch_product['id']; ?>'"
+								src="img/<?= $fetch_product['img']; ?>.jpg" alt="">
 							<a class="link brand" href="#">
 								<?= $fetch_product['brand']; ?>
 							</a>
 							<div class="name" onclick="window.location.href='quick-view.php?pid=<?= $fetch_product['id']; ?>'">
 								<?= $fetch_product['brand']; ?>
+								<?= $fetch_product['make']; ?>
 								<?= $fetch_product['description']; ?>
 							</div>
 							<div class="flex">
@@ -393,14 +422,13 @@ if (isset($_SESSION['user_id'])) {
 									Now</a>
 							</button>
 							<button type="submit" class="add-to-cart-btn btn btn-success" name="buy-now">
-								<a href=""
-									target="_blank">Add To Cart</a>
+								<a href="" target="_blank">Add To Cart</a>
 							</button>
 						</form>
 						<?php
 					}
 				} else {
-					echo '<p class="empty">No Products Fwdasound!</p>';
+					echo '<p class="empty">No Products Found!</p>';
 				}
 			}
 			?>
@@ -423,7 +451,10 @@ if (isset($_SESSION['user_id'])) {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
 		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<!-- <script src="js/bootstrap.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
