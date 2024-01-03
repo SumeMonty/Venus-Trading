@@ -167,7 +167,7 @@
 
 })(jQuery);
 
-var locationHref = 'Laptop.php?';
+var locationHref = 'index.php?';
 
 function brand_ref_check() {
 	
@@ -227,7 +227,7 @@ function brand_ref_check() {
 		document.querySelector('#clearFilters').style.display = "block";
 	}
 	if(urlParams.has('ram[]')) {
-		locationHref = 'Laptop.php' + window.location.search;
+		locationHref = 'index.php' + window.location.search;
 	}
 	// brand_ref.forEach(brand => {
 	// 	locationHref = locationHref + `brand[]='${brand}'&`;
@@ -309,7 +309,7 @@ function ram_ref_check() {
 	
 	
 	if(urlParams.has('brand[]')) {
-		locationHref = 'Laptop.php' + window.location.search;
+		locationHref = 'index.php' + window.location.search;
 	}
 	// ram_ref.forEach(ram => {
 	// 	locationHref = locationHref + `ram[]='${ram}'&`;
@@ -391,23 +391,23 @@ document.querySelector('#clearFilters').addEventListener('click', () => {
 	document.querySelector('#steenGBRef').checked = false
 	document.querySelector('#ttwoGBRef').checked = false
 	document.querySelector('#sfourGBRef').checked = false
-	window.location.href = 'Laptop.php';
+	window.location.href = 'index.php';
 	document.querySelector('#clearFilters').style.display = "none";
 })
 
-function toggleref() {
-	var x = document.querySelector('.refinements');
-	if (x.style.display === "none") {
-		x.style.display = "block";
-		x.style.transform = "translateX(0px)";
+// function toggleref() {
+	// var x = document.querySelector('.refinements');
+	// if (x.style.display === "none") {
+	// 	x.style.display = "block";
+	// 	x.style.transform = "translateX(0px)";
 	//   document.querySelector('.responsive-filter').style.transform = "translateY(-30px)";
-	} else {
+	// } else {
 		
-		x.style.transform = "translateX(-70px)";
-		x.style.display = "none";
+		// x.style.transform = "translateX(-70px)";
+		// x.style.display = "none";
 		// document.querySelector('.responsive-filter').style.transform = "translateY(0px)";
-	}
-}
+	// }
+// }
 
 
 // document.querySelector('#clearFilters').addEventListener('click', () => {
@@ -417,6 +417,22 @@ function toggleref() {
 // 	document.querySelector('#ttwoGBRef').checked = false
 // 	document.querySelector('#sfourGBRef').checked = false
 
-// 	// window.location.href = 'Laptop.php';
+// 	// window.location.href = 'index.php';
 // 	document.querySelector('#clearFilters').style.display = "none";
 // })
+
+
+function ramformsubmit() {
+	document.forms.ramform.submit();
+	document.querySelector('#clearFilters').style.display = "block";
+	// alert(document.ramform.ramformselect.selectedIndex)
+
+}
+
+
+function processorformsubmit() {
+	document.forms.processorform.submit();
+	document.querySelector('#clearFilters').style.display = "block";
+	// alert(document.ramform.ramformselect.selectedIndex)
+
+}
