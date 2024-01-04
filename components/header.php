@@ -12,6 +12,8 @@
 
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- <link type="text/css" rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> -->
 
 	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="css/slick.css" />
@@ -46,7 +48,7 @@
 		<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
-			<div class="container">
+			<!-- <div class="container"> -->
 				<!-- row -->
 				<div class="row">
 					<!-- LOGO -->
@@ -116,7 +118,7 @@
 					<!-- /ACCOUNT -->
 				</div>
 				<!-- row -->
-			</div>
+			<!-- </div> -->
 			<!-- container -->
 		</div>
 		<!-- /MAIN HEADER -->

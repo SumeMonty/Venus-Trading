@@ -22,7 +22,7 @@
 							<h5 class="footer-sub-title">Reviews</h5>
 							<ul class="footer-links">
 							<!-- <i class="fa-brands fa-google"></i>   -->
-								<li><a href="https://g.co/kgs/qaarqH" target="_blank">Google</a></li>
+								<li><a href="https://www.google.com/search?client=ms-android-oneplus-rvo3&sca_esv=591655088&cs=0&hl=en-US&output=search&q=Venus+Trading+Co.&ludocid=6110224686937572573&lsig=AB86z5VZY7lOd7fop1nL5rXLqkOG&kgs=d30e9ca469de43b0&shndl=-1&shem=lscsce,lsp&source=sh/x/loc/hdr/m1/4#lrd=0x3be7941569a23ddd:0x54cbe0fababc84dd,1,,,," target="_blank">Google</a></li>
 								<li><a href="https://jsdl.in/DT-43BU4TV1" target="_blank">Justdial</a></li>								
 							</ul>
 						</div>
@@ -40,8 +40,8 @@
 								<li><a href="mailto:venus1trading@gmail.com">
 									<i class="fa-regular fa-envelope"></i>venus1trading@gmail.com</a>
 								</li>
-								<li><a href="mailto:venustrading@gmail.com">
-									<i class="fa-regular fa-envelope"></i>venustrading@gmail.com</a>
+								<li><a href="mailto:prakash.khatri@venustrading.co.in">
+									<i class="fa-regular fa-envelope"></i>prakash.khatri@venustrading.co.in</a>
 								</li>
 							</ul>
 						</div>
