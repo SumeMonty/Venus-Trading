@@ -470,6 +470,7 @@ textarea.input {
 \*----------------------------*/
 
 #header {
+  padding: 0 5%;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #1f1a17;
