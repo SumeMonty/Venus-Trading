@@ -52,8 +52,8 @@
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav navigator">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="Laptop.php">Laptop</a></li>
+					<li><a href="/">Home</a></li>
+					<!-- <li><a href="Laptop.php">Laptop</a></li> -->
 					<li class="active"><a href="">Contact</a></li>
 
 				</ul>
@@ -74,7 +74,7 @@
 				<div class="col-md-12">
 					<h3 class="breadcrumb-header">Venus trading</h3>
 					<ul class="breadcrumb-tree">
-						<li><a href="index.php">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li class="active">Contact</li>
 					</ul>
 				</div>

@@ -1594,7 +1594,7 @@ input.min-price[type=number],
 input.max-price[type=number] {
   -moz-appearance: textfield;
 }
-.container.laptop-container {
+.laptop-container {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -1794,6 +1794,10 @@ input.max-price[type=number] {
 
 .quick-view {
   margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .quick-view .heading {
@@ -1802,6 +1806,7 @@ input.max-price[type=number] {
 
 .quick-view form{
   /* padding:1rem; */
+  width: 90%;
   border-radius: .5rem;
   border:var(--border);
   background-color: var(--white);
@@ -1817,8 +1822,14 @@ input.max-price[type=number] {
 }
 
 .quick-view form .row .image-container{
+  display: flex;
+  justify-content: center;
   margin-bottom: 2rem;
   flex:1 1 40rem;
+}
+
+.quick-view form .row .image-container .main-image {
+  width: 80%;
 }
 
 .quick-view form .row .image-container .main-image img{
@@ -1894,6 +1905,10 @@ input.max-price[type=number] {
   color:var(--light-color);
   line-height: 2;
 }  
+
+.quick-view form .row .flex-btn input {
+  margin-bottom: 1rem;
+}
 /********************************* QUICK VIEW **************************************/
 
 .rating-avg {
@@ -2297,7 +2312,7 @@ input.max-price[type=number] {
 ===========================================================*/
 
 @media only screen and (max-width: 1201px) {
-  .container.laptop-container {
+  .laptop-container {
     /* height: 10vh; */
     display: flex;
     flex-direction: row;

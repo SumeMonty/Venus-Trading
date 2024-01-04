@@ -407,6 +407,7 @@ if (isset($_SESSION['user_id'])) {
 							<div class="name" onclick="window.location.href='quick-view.php?pid=<?= $fetch_product['id']; ?>'">
 								<?= $fetch_product['brand']; ?>
 								<?= $fetch_product['make']; ?>
+								<?= $fetch_product['img']; ?>
 								<?= $fetch_product['description']; ?>
 							</div>
 							<div class="flex">

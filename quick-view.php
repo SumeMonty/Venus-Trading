@@ -104,7 +104,7 @@ if (isset($_SESSION['user_id'])) {
 
 	<!-- SECTION -->
 
-	<div class="container">
+	<!-- <div class="container"> -->
 		<div class="quick-view">
 
 			<h1 class="heading">Quick View</h1>
@@ -134,9 +134,10 @@ if (isset($_SESSION['user_id'])) {
 							</div>
 							<div class="content">
 								<div class="name">
-									<?= $fetch_product['brand']; ?> 
-									<?= $fetch_product['make']; ?> 
-									<?= $fetch_product['description']; ?>
+								<?= $fetch_product['brand']; ?>
+								<?= $fetch_product['make']; ?>
+								<?= $fetch_product['img']; ?>
+								<?= $fetch_product['description']; ?>
 								</div>
 								<div class="flex">
 									<div class="price"><span>₹</span>
@@ -161,7 +162,7 @@ if (isset($_SESSION['user_id'])) {
 			?>
 
 		</div>
-	</div>
+	<!-- </div> -->
 
 	<!-- /SECTION -->
 
