@@ -1602,16 +1602,16 @@ input.max-price[type=number] {
   justify-content: space-between;
   align-items: center;
 }
-#responsive-nav {
-  margin-right: 27%;
+/* #responsive-nav {
+  margin-right: 31%;
 
 }
 #responsive-nav-brand {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-left: 27%;
-}
+  margin-left: 31%;
+} */
 /* .products .box-container{
   flex: 7;
   display: grid;

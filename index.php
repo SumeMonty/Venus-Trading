@@ -369,7 +369,7 @@ if (isset($_SESSION['user_id'])) {
 			if (isset($_POST['search-btn'])) {
 				$searchedItem = $_POST['search-value'];
 				$selectedBrand = $_POST['brand-select'];
-				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE '%$searchedItem%'";
+				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE '%$searchedItem%' OR make LIKE '$searchedItem%' OR make LIKE '%$searchedItem' OR brand = '$searchedItem'";
 				if ($selectedBrand != "ALL") {
 					$sql_query = $sql_query . " AND brand = '$selectedBrand'";
 					// echo $sql_query;
@@ -377,7 +377,7 @@ if (isset($_SESSION['user_id'])) {
 				// run_my_query($conn, $sql_query);
 			}
 
-			// echo "Query: " . $sql_query;
+			echo "Query: " . $sql_query;
 			
 			run_my_query($conn, $sql_query);
 
