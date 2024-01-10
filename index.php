@@ -377,7 +377,7 @@ if (isset($_SESSION['user_id'])) {
 				// run_my_query($conn, $sql_query);
 			}
 
-			echo "Query: " . $sql_query;
+			// echo "Query: " . $sql_query;
 			
 			run_my_query($conn, $sql_query);
 

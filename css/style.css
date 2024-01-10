@@ -1602,7 +1602,7 @@ input.max-price[type=number] {
   justify-content: space-between;
   align-items: center;
 }
-/* #responsive-nav {
+#responsive-nav {
   margin-right: 31%;
 
 }
@@ -1611,7 +1611,7 @@ input.max-price[type=number] {
   justify-content: center;
   flex-wrap: wrap;
   margin-left: 31%;
-} */
+}
 /* .products .box-container{
   flex: 7;
   display: grid;
