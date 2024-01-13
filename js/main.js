@@ -1,3 +1,23 @@
+// $(document).ready(function() {
+// 	filter_data();
+
+// 	function filter_data() {
+// 		// $('.box').html('')
+
+// 		var action = 'fetch_data';
+// 		var brand = get_filter('brand');
+// 		var processor = get_filter('processor');
+// 		var graphics = get_filter('graphics');
+
+// 		$.ajax({
+// 			url: "fetch_data.php",
+// 			method: "POST",
+// 			data: {action: action, }
+// 		})
+// 	}
+// })
+
+
 (function($) {
 	"use strict"
 
