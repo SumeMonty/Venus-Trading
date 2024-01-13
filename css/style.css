@@ -1563,7 +1563,7 @@ textarea.input {
 }
 .refinements {
   padding: 0 0 0 15px;
-  flex: 1;
+  flex: 2;
 }
 .refinements div {
   margin-bottom: 15px;
@@ -1573,7 +1573,9 @@ textarea.input {
   font-size: 1.5rem;
   font-weight: 500;
 } 
-
+.accordion-button {
+  font-size: 2rem;
+}
 .form-select  {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1624,6 +1626,16 @@ input.max-price[type=number] {
 
 .products  .box-container{
   flex: 7;
+  display: flex;
+  flex-direction: column;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, 30rem); */
+  /* gap:1.5rem; */
+  /* justify-content: center; */
+  /* align-items: flex-start; */
+}
+.products  .box-container .show-products{
+  /* flex: 7; */
   display: grid;
   grid-template-columns: repeat(auto-fit, 30rem);
   gap:1.5rem;
@@ -1631,11 +1643,11 @@ input.max-price[type=number] {
   align-items: flex-start;
 }
 
-.products  .box-container * {
+.products  .box-container .show-products * {
   cursor: pointer;
 }
 
-.products .box-container .box{
+.products .box-container .show-products .box{
   position: relative;
   background-color: var(--white);
   box-shadow: var(--box-shadow);
@@ -1645,19 +1657,20 @@ input.max-price[type=number] {
   overflow: hidden;
 }
 
-.products .box-container .box img{
+.products .box-container .show-products .box img{
   height: 20rem;
   width: 100%;
   object-fit: contain;
   margin-bottom: 1rem;
 }
 
-.products .box-container .box .laptop-series,
-.products .box-container .box .brand-label{
+.products .box-container .show-products .box .laptop-series,
+.products .box-container .show-products .box .brand-label{
   position: absolute;
   top:1rem;
   height: 3.5rem;
   min-width: 4.5rem;
+  padding: 0 1rem;
   /* line-height: 4.2rem; */
   font-size: 1.5rem;
   background-color: var(--red);
@@ -1669,18 +1682,120 @@ input.max-price[type=number] {
   transition: .2s linear;
 }
 
-.products .box-container .box .laptop-series{
+.products .box-container .show-products .box .laptop-series{
   left: 1rem;
 }
 
-.products .box-container .box .brand-label{
+.products .box-container .show-products .box .brand-label{
   left: 1rem;
 }
 
-.products .box-container .box .laptop-series:hover,
-.products .box-container .box .brand-label:hover{
+.products .box-container .show-products .box .laptop-series:hover,
+.products .box-container .show-products .box .brand-label:hover{
   background-color: var(--white);
   color:var(--red);
+}
+
+.products  .box-container-user {
+  flex: 7;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  gap:1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.products  .box-container-user * {
+  cursor: pointer;
+}
+
+.products .box-container-user .box{
+  position: relative;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+  border:var(--border);
+  padding:2rem;
+  overflow: hidden;
+}
+
+.products .box-container-user .box img{
+  height: 20rem;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.products .box-container-user .box .laptop-series,
+.products .box-container-user .box .brand-label{
+  position: absolute;
+  top:1rem;
+  height: 3.5rem;
+  min-width: 4.5rem;
+  padding: 0 1rem;
+  /* line-height: 4.2rem; */
+  font-size: 1.5rem;
+  background-color: var(--red);
+  border:var(--border-red);
+  border-radius: .5rem;
+  text-align: center;
+  color:var(--white);
+  cursor: pointer;
+  transition: .2s linear;
+}
+
+.products .box-container-user .box .laptop-series{
+  left: 1rem;
+}
+
+.products .box-container-user .box .brand-label{
+  left: 1rem;
+}
+
+.products .box-container-user .box .laptop-series:hover,
+.products .box-container-user .box .brand-label:hover{
+  background-color: var(--white);
+  color:var(--red);
+}
+
+
+.add-products form{
+  max-width: 70rem;
+  margin: 0 auto;   
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border:var(--border);
+  border-radius: .5rem;
+  padding:2rem;
+}
+
+.add-products form .flex{
+  display: flex;
+  gap:1.5rem;
+  flex-wrap: wrap;
+}
+
+.add-products form .flex .inputBox{
+  flex:1 1 25rem;
+} 
+
+.add-products form span{
+  font-size:1.7rem;
+  color:var(--light-color);
+}
+
+.add-products form .box{
+  font-size: 1.8rem;
+  background-color: var(--light-bg);
+  border-radius: .5rem;
+  padding:1.4rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.add-products form textarea{
+  height: 5.4rem;
+  resize: none;
 }
 
 .add-to-cart-btn,
@@ -1697,7 +1812,7 @@ input.max-price[type=number] {
   font-weight: 700;
 }
 
-.products .box-container .box .name{
+.products .box-container-user .box .name{
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1714,13 +1829,13 @@ input.max-price[type=number] {
   transition: 0.2s color;
 } */
 
-.products .box-container .box .flex{
+.products .box-container-user .box .flex{
   display: flex;
   align-items: center;
   gap:1rem;
 }
 
-.products .box-container .box .flex .qty{
+.products .box-container-user .box .flex .qty{
   width: 7rem;
   padding:1rem;
   border:var(--border);
@@ -1729,7 +1844,7 @@ input.max-price[type=number] {
   border-radius: .5rem;
 }
 
-.products .box-container .box .flex .price{
+.products .box-container-user .box .flex .price{
   font-size: 2rem;
   color:var(--red);
   margin-right: auto;
@@ -2308,6 +2423,60 @@ input.max-price[type=number] {
   margin: 15px 0px;
 }
 
+
+
+/*=========================================================
+	CART
+===========================================================*/
+
+
+.shopping-cart .fa-edit{
+  height: 4.5rem;
+  border-radius: .5rem;
+  background-color: var(--orange);
+  width: 5rem;
+  font-size: 2rem;
+  color:var(--white);
+  cursor: pointer;
+}
+
+.shopping-cart .fa-edit:hover{
+  background-color: var(--black);
+}
+
+.shopping-cart .sub-total{
+  margin:2rem 0;
+  font-size: 2rem;
+  color:var(--light-color);
+}
+
+.shopping-cart .sub-total span{
+  color:var(--red);
+}
+
+.cart-total{
+  max-width: 50rem;
+  margin:0 auto;
+  margin-top: 3rem;
+  background-color: var(--white);
+  border:var(--border);
+  border-radius: .5rem;;
+  padding:2rem;
+  text-align: center;
+}
+
+.cart-total p{
+  font-size: 2.5rem;
+  color:var(--black);
+  margin-bottom: 2rem;
+}
+
+.cart-total p span{
+  color:var(--red);
+}
+
+
+
 /*=========================================================
 	13 -> RESPONSIVE
 ===========================================================*/
@@ -2498,6 +2667,9 @@ input.max-price[type=number] {
   position: fixed;
     transition: transform .5s ease-in-out;
   }
+  .add-products form textarea{
+    height:15rem;
+ } 
 }
 
 @media only screen and (max-width: 400px) {
@@ -2528,16 +2700,18 @@ input.max-price[type=number] {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* height: 50vh; */
   align-items: center;
 }
 .container .goodwill .gallery {
   display: flex;
+  height: 30vh;
   justify-content: space-between;
 }
 .container .goodwill .gallery img {
   border-radius: 10px;
   height: 70%;
-  width: 33%;
+  width: 50%;
   cursor: pointer;
 }
 
