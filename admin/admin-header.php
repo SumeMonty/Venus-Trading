@@ -11,22 +11,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
 	<!-- <link type="text/css" rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> -->
 
 	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="css/slick.css" />
-	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+	<link type="text/css" rel="stylesheet" href="../css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="../css/slick-theme.css" />
 
 	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+	<link type="text/css" rel="stylesheet" href="../css/nouislider.min.css" />
 
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="../css/style.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,7 +55,7 @@
 					<div class="col-lg-3 col-md-12 col-12">
 						<div class="header-logo">
 							<a href="#" class="logo">
-								<img height="20%" width="49%" src="./img/venus-black-filled.png" alt="Venus Trading">
+								<img height="20%" width="49%" src="../img/venus-black-filled.png" alt="Venus Trading">
 							</a>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 
 							<!-- Cart -->
 							<div class="mt-4">
-								<a href="cart.php">
+								<a href="">
 									<i class="fa fa-shopping-cart fa-lg"></i>
 									
 									<!-- <span>Your Cart</span> -->

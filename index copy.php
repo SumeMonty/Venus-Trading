@@ -43,9 +43,7 @@ if (isset($_SESSION['user_id'])) {
 
 	<!-- Font Awesome Icon -->
 	<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -140,214 +138,140 @@ if (isset($_SESSION['user_id'])) {
 		<div class="refinements">
 			<h5 id="clearFilters" style="display: none; margin-top: 2rem; cursor: pointer;">Clear
 				Filters</h5>
-			<div class="accordion" id="accordionExample">
-				<div class="accordion-item">
-					<h1 class="accordion-header">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse"
-							data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Brand
-						</button>
-					</h1>
-					<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-						<div class="accordion-body">
-							<?php
-					        	// $sql_query = "SELECT DISTINCT(brand) FROM products ORDER BY id";
-								// $statement = $conn->prepare($sql_query);
-								// $statement->execute();
-								// $result = $statement->fetchAll();
-								// foreach ($result as $row) {
-								// 	var_dump	($row);
-							?>
-							<!-- <div class="list-group-item checkbox">
-								<label><input type="checkbox" class="common_selector brand">ASUS</label>
-							</div>
-							<div class="list-group-item checkbox">
-								<label><input type="checkbox" class="common_selector brand">HP</label>
-							</div>
-							<div class="list-group-item checkbox">
-								<label><input type="checkbox" class="common_selector brand">DELL</label>
-							</div>
-							<div class="list-group-item checkbox">
-								<label><input type="checkbox" class="common_selector brand">ACER</label>
-							</div> -->
-							
-							<form action="">
-								<ul>
-									<li>
-										<input type="checkbox">
-										<label for="asus">ASUS</label>
-									</li>
-									<li>
-										<input type="checkbox">
-										<label for="hp">HP</label>
-									</li>
-									<li>
-										<input type="checkbox">
-										<label for="dell">DELL</label>
-									</li>
-									<li>
-										<input type="checkbox">
-										<label for="acer">ACER</label>
-									</li>
-									
-								</ul>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h1 class="accordion-header">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse"
-							data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-							Processor
-						</button>
-					</h1>
-					<div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-						<div class="accordion-body">
-							<form action="">
-								<ul>
-									<li>
-										<input type="checkbox" name="i3-1115G4" id="i3-1115G4">
-										<label for="i3-1115G4">Intel®Core™ i3-1115G4</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i3-1215U" id="i3-1215U">
-										<label for="i3-1215U">Intel®Core™ i3-1215U</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i3-1315U" id="i3-1315U">
-										<label for="i3-1315U">Intel®Core™ i3-1315U</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i3-N305" id="i3-N305">
-										<label for="i3-N305">Intel®Core™ i3-N305</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-10300H" id="i5-10300H">
-										<label for="i5-10300H">Intel®Core™ i5-10300H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-1135G7" id="i5-1135G7">
-										<label for="i5-1135G7">Intel®Core™ i5-1135G7</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-11400H" id="i5-11400H">
-										<label for="i5-11400H">Intel®Core™ i5-11400H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-1235U" id="i5-1235U">
-										<label for="i5-1235U">Intel®Core™ i5-1235U</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-1240P" id="i5-1240P">
-										<label for="i5-1240P">Intel®Core™ i5-1240P</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-12450H" id="i5-12450H">
-										<label for="i5-12450H">Intel®Core™ i5-12450H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-12500H" id="i5-12500H">
-										<label for="i5-12500H">Intel®Core™ i5-12500H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i5-1340P" id="i5-1340P">
-										<label for="i5-1340P">Intel®Core™ i5-1340P</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i7 12700H" id="i7 12700H">
-										<label for="i7 12700H">Intel®Core™ i7 12700H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i7-1355U" id="i7-1355U">
-										<label for="i7-1355U">Intel®Core™ i7-1355U</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i7-1360P" id="i7-1360P">
-										<label for="i7-1360P">Intel®Core™ i7-1360P</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i9 12900H" id="i9 12900H">
-										<label for="i9 12900H">Intel®Core™ i9 12900H</label>
-									</li>
-									<li>
-										<input type="checkbox" name="i9-13900H" id="i9-13900H">
-										<label for="i9-13900H">Intel®Core™ i9-13900H</label>
-									</li>
-
-								</ul>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="accordion-item">
-					<h1 class="accordion-header">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse"
-							data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-							Graphics Card
-						</button>
-					</h1>
-					<div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-						<div class="accordion-body">
-							<form action="">
-								<ul>
-									<li>
-										<input type="checkbox" name="intelUHD" id="intelUHD">
-										<label for="intelUHD">Intel® UHD Graphics</label>
-									</li>
-									<li>
-										<input type="checkbox" name="irisXE" id="irisXE">
-										<label for="irisXE">Intel Iris Xᵉ Graphics</label>
-									</li>
-									<li>
-										<input type="checkbox" name="radVega7" id="radVega7">
-										<label for="radVega7">AMD Radeon™ Vega 7 Graphics</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx1650" id="rtx1650">
-										<label for="rtx1650">NVIDIA® RTX™ 1650</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx2050" id="rtx2050">
-										<label for="rtx2050">NVIDIA® RTX™ 2050</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx3050" id="rtx3050">
-										<label for="rtx3050">NVIDIA® RTX™ 3050</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx3050ti" id="rtx3050ti">
-										<label for="rtx3050ti">NVIDIA® RTX™ 3050 TI</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx4050" id="rtx4050">
-										<label for="rtx4050">NVIDIA® RTX™ 4050</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx4060" id="rtx4060">
-										<label for="rtx4060">NVIDIA® RTX™ 4060</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx4070" id="rtx4070">
-										<label for="rtx4070">NVIDIA® RTX™ 4070</label>
-									</li>
-									<li>
-										<input type="checkbox" name="rtx4080" id="rtx4080">
-										<label for="rtx4080">NVIDIA® RTX™ 4080</label>
-									</li>
-
-								</ul>
-							</form>
-						</div>
-					</div>
-				</div>
+			<div class="brand-refinements">
+				<h3>Brand</h3>
+				<form action="">
+					<ul class="list-brand">
+						<li>
+							<input class="form-check-input me-1" type="checkbox" name="asus-ref" value="" id="asusRef"
+								onchange="brand_ref_check()">
+							<label class="form-check-label" for="asus">ASUS</label>
+						</li>
+						<li>
+							<input class="form-check-input me-1" type="checkbox" value="" name="hp-ref" id="hpRef"
+								onchange="brand_ref_check()">
+							<label class="form-check-label" for="hp">HP</label>
+						</li>
+						<li>
+							<input class="form-check-input me-1" type="checkbox" value="" name="acer-ref" id="acerRef"
+								onchange="brand_ref_check()">
+							<label class="form-check-label" for="acer">ACER</label>
+						</li>
+						<li>
+							<input class="form-check-input me-1" type="checkbox" value="" name="dell-ref" id="dellRef"
+								onchange="brand_ref_check()">
+							<label class="form-check-label" for="acer">DELL</label>
+						</li>
+						<!-- <li>
+							<label class="form-check-label" id="clearBrand"
+								style="display: none; cursor: pointer;">Clear All</label>
+						</li> -->
+					</ul>
+				</form>
 
 			</div>
+			<div class="price-range-refinements">
+				<h3>Price Range</h3>
+				<form>
+					<div class="row">
+						<div class="col">
+							<input type="number" name="min-price" class="form-control min-price" placeholder="Min"
+								value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['min-price'], ENT_QUOTES) : ''; ?>">
+						</div>
+						<div class="col">
+							<input type="number" name="max-price" class="form-control max-price" placeholder="Max"
+								value="<?php echo isset($_GET['min-price']) ? htmlspecialchars($_GET['max-price'], ENT_QUOTES) : ''; ?>">
+						</div>
+						<div class="col">
+							<input type="submit" class="btn btn-primary" value="Go"></input>
+						</div>
+					</div>
+				</form>
+
+			</div>
+			<div class="ram-size-refinements">
+				<h3>RAM</h3>
+				<!-- <div class="d-flex"> -->
+
+				<!-- <div class="btn-group">
+						<button type="button" class="btn btn-info">Ram</button>
+						<button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split"
+							data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+							<span class="visually-hidden">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">Separated link</a></li>
+						</ul>
+					</div> -->
+				<form name="ramform">
+					<select name="ramformselect" onchange="ramformsubmit()" class="form-select col-md-10">
+						<option value="NULL" selected><?php echo isset($_GET['ramformselect']) ? htmlspecialchars($_GET['ramformselect'], ENT_QUOTES) : 'Choose Ram Size'; ?></option>
+						<option onclick="" value="4gb">4 GB</option>
+						<option onclick="" value="8gb">8 GB</option>
+						<option onclick="" value="16gb">16 GB</option>
+						<option onclick="" value="32gb">32 GB</option>
+						<option onclick="" value="64gb">64 GB</option>
+					</select>
+				</form>
+				
+				<!-- </div> -->
+				<!-- <ul class="list-ram-size">
+					<li>
+						<input class="form-check-input me-1" type="checkbox" value="" id="fourGBRef"
+							onchange="ram_ref_check()">
+						<label class="form-check-label" for="4gb">4 GB</label>
+					</li>
+					<li>
+						<input class="form-check-input me-1" type="checkbox" value="" id="eightGBRef"
+							onchange="ram_ref_check()">
+						<label class="form-check-label" for="8gb">8 GB</label>
+					</li>
+					<li>
+						<input class="form-check-input me-1" type="checkbox" value="" id="steenGBRef"
+							onchange="ram_ref_check()">
+						<label class="form-check-label" for="16gb">16 GB</label>
+					</li>
+					<li>
+						<input class="form-check-input me-1" type="checkbox" value="" id="ttwoGBRef"
+							onchange="ram_ref_check()">
+						<label class="form-check-label" for="32gb">32 GB</label>
+					</li>
+					<li>
+						<input class="form-check-input me-1" type="checkbox" value="" id="sfourGBRef"
+							onchange="ram_ref_check()">
+						<label class="form-check-label" for="64gb">64 GB</label>
+					</li>
+				<li>
+						<label class="form-check-label" id="clearRam" style="display: none; cursor: pointer;">Clear
+							All</label>
+					</li>
+				</ul> -->
+
+
+			</div>
+
+
+			<div class="processor-refinements">
+				<h3>Processor</h3>
+				<form name="processorform">
+					<select name="processorformselect" onchange="processorformsubmit()" class="form-select col-md-10">
+						<option value="NULL" selected><?php echo isset($_GET['processorformselect']) ? htmlspecialchars($_GET['processorformselect'], ENT_QUOTES) : 'Choose Processor'; ?></option>
+						<option onclick="" value="amd">AMD</option>
+						<option onclick="" value="intel">INTEL</option>
+					</select>
+				</form>
+			</div>
 		</div>
-		<!-- <button type="button" class="btn btn-primary responsive-filter" data-toggle="button" aria-pressed="false"
+		<button type="button" class="btn btn-primary responsive-filter" data-toggle="button" aria-pressed="false"
 			autocomplete="off" onclick="toggleref()">
 			<i class="fa-solid fa-arrow-right"></i>
-		</button> -->
+		</button>
 
 		<!-- <div class="andagundu"> -->
 		<div class="box-container-user">
@@ -376,9 +300,9 @@ if (isset($_SESSION['user_id'])) {
 				$brand_string = implode(',', $_GET['brand']);
 				// if ($ram_string != '') {
 				// 	$sql_query .= ' AND brand IN($brand_string)';
-			
+
 				// } else {
-				$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE brand IN($brand_string)";
+					$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE brand IN($brand_string)";
 				// }
 				// echo $sql_query;
 				// run_my_query($conn, $sql_query);
@@ -393,32 +317,28 @@ if (isset($_SESSION['user_id'])) {
 				$ramformselectvalue = $_GET['ramformselect'];
 
 				if ($brand_string != '') {
-					if ($ramformselectvalue != 'NULL')
-						$sql_query .= " AND ram = '$ramformselectvalue'";
+					if($ramformselectvalue != 'NULL') $sql_query .= " AND ram = '$ramformselectvalue'";
 				} else {
-					if ($ramformselectvalue != 'NULL')
-						$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE ram = '$ramformselectvalue'";
+					if($ramformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE ram = '$ramformselectvalue'";
 				}
 				// run_my_query($conn, $sql_query);
-				// } else {
+			// } else {
 				// echo 'URL parameter does not exist';
 				// run_my_query($conn, $sql_query);
 			}
-
+			
 			if (isset($_GET['processorformselect'])) {
 				$processorformselectvalue = $_GET['processorformselect'];
 
 				if ($brand_string != '') {
 					// if($processorformselectvalue != 'NULL') $sql_query .= " AND processor = '$processorformselectvalue'";
-					if ($processorformselectvalue != 'NULL')
-						$sql_query .= " AND description LIKE = '%$processorformselectvalue%'";
+					if($processorformselectvalue != 'NULL') $sql_query .= " AND description LIKE = '%$processorformselectvalue%'";
 				} else {
 					// if($processorformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE processor = '$processorformselectvalue'";
-					if ($processorformselectvalue != 'NULL')
-						$sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE = '%$processorformselectvalue%'";
+					if($processorformselectvalue != 'NULL')  $sql_query = "SELECT id, SUBSTRING(description, 1, 20) AS shortdesc, description, brand, price, img, ram, make FROM `products` WHERE description LIKE = '%$processorformselectvalue%'";
 				}
 				// run_my_query($conn, $sql_query);
-				// } else {
+			// } else {
 				// echo 'URL parameter does not exist';
 				// run_my_query($conn, $sql_query);
 			}
@@ -500,7 +420,7 @@ if (isset($_SESSION['user_id'])) {
 									onkeypress="if(this.value.length == 2) return false;" value="1">
 							</div>
 							<button type="submit" class="buy-now-btn btn btn-primary" name="buy-now">
-								<a href="https://wa.me/9850145588?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
+								<a href="https://wa.me/9137503778?text=I'm%20interested%20in%20buying%20<?= $fetch_product['brand']; ?>%20<?= $fetch_product['description']; ?>"
 									target="_blank">Buy
 									Now</a>
 							</button>
