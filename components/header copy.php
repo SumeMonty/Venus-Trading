@@ -86,9 +86,8 @@
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div class="mt-4">
-								<a href="../admin/admin-login.php">
-									<!-- <i class="fa-solid fa-heart fa-lg"></i> -->
-									<i class="fa fa-user fa-lg"></i>
+								<a href="#">
+									<i class="fa-solid fa-heart fa-lg"></i>
 									<!-- <span>Your Wishlist</span> -->
 									<!-- <div class="qty">2</div> -->
 								</a>
@@ -97,9 +96,8 @@
 
 							<!-- Cart -->
 							<div class="mt-4">
-								<a href="cart.php">
+								<a href="">
 									<i class="fa fa-shopping-cart fa-lg"></i>
-									
 									<!-- <span>Your Cart</span> -->
 									<!-- <div class="qty">3</div> -->
 								</a>
@@ -110,14 +108,13 @@
 							<!-- Menu Toogle -->
 							<div class="menu-toggle">
 								<a href="#">
-									<i class="fa fa-bars fa-lg"></i>
-									<!-- <span>Menu</span> -->
+									<i class="fa fa-bars"></i>
+									<span>Menu</span>
 								</a>
 							</div>
 							<!-- /Menu Toogle -->
 						</div>
 					</div>
-					
 					<!-- /ACCOUNT -->
 				</div>
 				<!-- row -->
