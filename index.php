@@ -41,6 +41,9 @@ if (isset($_SESSION['user_id'])) {
 	<!-- nouislider -->
 	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
 
+	<!-- Title Logo -->
+	<link rel="icon" href="img/venus-black-filled.png">
+
 	<!-- Font Awesome Icon -->
 	<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -122,7 +125,7 @@ if (isset($_SESSION['user_id'])) {
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="breadcrumb-header">Venus trading</h3>
+					<h3 class="breadcrumb-header"><span>Venus</span> Trading Co.</h3>
 					<!-- <ul class="breadcrumb-tree">
 						<li><a href="index.php">Home</a></li>
 						<li class="active">Laptop</li>
