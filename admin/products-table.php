@@ -139,7 +139,8 @@ if (isset($_POST['update'])) {
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav nav-pills navigator">
-                    <li class="nav-item active"><a href="">Home</a></li>
+                    <li class="nav-item"><a href="admin-index.php">Home</a></li>
+                    <li class="nav-item active"><a href="">Table</a></li>
                     <!-- <li class="nav-item"><a href="Laptop.php">Laptop</a></li> -->
                     <!-- <li class="nav-item"><a href="contact.php">Contact</a></li> -->
                 </ul>

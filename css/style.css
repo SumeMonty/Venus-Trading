@@ -1723,6 +1723,10 @@ input.max-price[type=number] {
   align-items: flex-start;
 }
 
+.scrollll {
+  /* overflow-y: scroll; */
+}
+
 div.row.filter_data::before {
   display: none;
 }

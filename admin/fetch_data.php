@@ -11,20 +11,21 @@
 
     <title>Product filter in php</title>
 
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/jquery-ui.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/admin-style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <?php
 
 //fetch_data.php
 
-include('components/connect.php');
+include('../components/connect.php');
 
 if (isset($_POST["action"])) {
     $query = "
@@ -71,34 +72,41 @@ if (isset($_POST["action"])) {
         foreach ($result as $row) {
 
             $output .= '
-                    <form action="" method="post" class="box">
-                    <input type="hidden" name="pid" value=' . $row['id'] . '>
-                    <input type="hidden" name="name"
-                        value=' . $row['brand'] . $row['description'] . '>
-                    <input type="hidden" name="price" value=' . $row['price'] . '>
-                    <input type="hidden" name="image" value=' . $row['img'] . '>
-                    <button class="laptop-series" name="laptop-series">' . $row['make'] . '</button>
-                    <!-- <button class="brand-label" name="brand-label">HP</button> -->
+            <form action="" method="post" class="box">
+            <input type="hidden" name="pid" value="'.$row['id'].'">
+            <input type="hidden" name="name"
+                value="'.$row['brand'].' '.$row['description'].'">
+            <input type="hidden" name="price" value="'.$row['price'].'">
+            <input type="hidden" name="image" value="'.$row['img'].'">
+            <button class="laptop-series" name="laptop-series">
+                '.$row['make'].'
+            </button>
+            <!-- <button class="brand-label" name="brand-label">HP</button> -->
 
-                    <img onclick="window.location.href="quick-view.php?pid=' . $row['id'] . '" src="img/' . $row['img'] . '.jpg" alt="">
-                    <a class="link brand" href="#">' . $row['brand'] . '</a>
-                    <div class="name" onclick="window.location.href="quick-view.php?pid=' . $row['id'] . '">' . ' ' . $row['brand'] . ' ' . $row['make'] . ' ' . $row['img'] . ' ' . $row['description'] . '</div>
-                    <div class="flex">
-                        <div class="price"><span>₹</span>' . $row['price'] . '<span>/-</span>
-                        </div>
-                        <input type="number" name="qty" class="qty" min="1" max="99"
-                            onkeypress="if(this.value.length == 2) return false;" value="1">
-                        
-                    </div>
-                    <button type="submit" class="buy-now-btn btn btn-primary" name="buy-now">                    
-                        <a href="javascript:getqty(\''.$row['brand'].'\', \''.$row['make'].'\', \''.$row['img'].'\', \''.$row['description'].'\')"
-                            >Buy
-                            Now</a>
-                    </button>
-                    <button type="submit" class="add-to-cart-btn btn btn-success" name="buy-now">
-                        <a href="" target="_blank">Add To Cart</a>
-                    </button>
-                    </form>
+            <img onclick="window.location.href=\'quick-view.php?pid='.$row['id'].'\'"
+                src="../img/'.$row['img'].'.jpg" alt="">
+            <a class="link brand" href="#">
+                '.$row['brand'].'
+            </a>
+            <div class="name" onclick="window.location.href=\'quick-view.php?pid='.$row['id'].'\'">
+                '.$row['brand'].'
+                '.$row['make'].'
+                '.$row['img'].'
+                '.$row['description'].'
+            </div>
+            <div class="flex">
+                <div class="price"><span>₹</span>'.$row['price'].'<span>/-</span>
+                </div>
+                <!-- <input type="number" name="qty" class="qty" min="1" max="99"
+                onkeypress="if(this.value.length == 2) return false;" value="1"> -->
+            </div>
+            <button type="submit" class="buy-now-btn btn btn-primary" name="update-product">
+                <a href="product-update.php?update='.$row['id'].'" target="_blank">Update</a>
+            </button>
+            <button class="add-to-cart-btn btn btn-danger" name="delete">
+                <a href="admin-index.php?delete='.$row['id'].'" onclick="return confirm(\'delete this product?\');">Delete</a>
+            </button>
+        </form>
                 ';
 
 
@@ -148,7 +156,7 @@ if (isset($_POST["action"])) {
 '
    <div class="col-sm-4 col-lg-3 col-md-3">
    <div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-    <img src="img/'. $row['img'] .'.jpg' .'" alt="" class="img-responsive" >
+    <img src="../img/'. $row['img'] .'.jpg' .'" alt="" class="img-responsive" >
     <p align="center"><strong><a href="#">'. $row['brand']; $row['make']; $row['description'] .'</a></strong></p>
     <h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'</h4>
     <p>Camera : '. $row['brand'].' MP<br />
@@ -176,7 +184,7 @@ if (isset($_POST["action"])) {
                             <!-- <button class="brand-label" name="brand-label">HP</button> -->
 
                             <img onclick="window.location.href="quick-view.php?pid=$row[\'id\']""
-                                src="img/$row[\'img\'].jpg" alt="">
+                                src="../img/$row[\'img\'].jpg" alt="">
                             <a class="link brand" href="#">
                                 $row[\'brand\']
                             </a>

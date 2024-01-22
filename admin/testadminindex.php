@@ -2,7 +2,7 @@
 
 //index.php
 
-include('components/connect.php');
+include('../components/connect.php');
 
 ?>
 
@@ -19,13 +19,16 @@ include('components/connect.php');
 
     <title>Product filter in php</title>
 
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/nouislider.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/jquery-ui.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/admin-style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/nouislider.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,13 +38,14 @@ include('components/connect.php');
             <br />
             <br />
             <div class="col-md-2">
-                <div class="list-group">
+                <!-- <div class="list-group">
                     <h3>Price</h3>
                     <input type="hidden" id="hidden_minimum_price" value="20000" />
                     <input type="hidden" id="hidden_maximum_price" value="65000" />
                     <p id="price_show">20000 - 65000</p>
                     <div id="price_range"></div>
-                </div>
+                    
+                </div> -->
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h1 class="accordion-header">
