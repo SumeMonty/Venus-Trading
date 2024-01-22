@@ -4,12 +4,11 @@ include '../components/connect.php';
 
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = '';
+$admin_id = $_SESSION['admin_id'];
+
+if(!isset($admin_id)){
+   header('location:admin-login.php');
 }
-;
 
 
 if (isset($_POST['add_product'])) {
