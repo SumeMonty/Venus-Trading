@@ -38,8 +38,8 @@ include('components/connect.php');
                 <div class="list-group">
                     <h3>Price</h3>
                     <input type="hidden" id="hidden_minimum_price" value="20000" />
-                    <input type="hidden" id="hidden_maximum_price" value="65000" />
-                    <p id="price_show">20000 - 65000</p>
+                    <input type="hidden" id="hidden_maximum_price" value="300000" />
+                    <p id="price_show">20000 - 300000</p>
                     <div id="price_range"></div>
                 </div>
                 <div class="accordion" id="accordionExample">
@@ -254,8 +254,8 @@ include('components/connect.php');
             $('#price_range').slider({
                 range: true,
                 min: 20000,
-                max: 65000,
-                values: [20000, 65000],
+                max: 300000,
+                values: [20000, 300000],
                 step: 500,
                 stop: function (event, ui) {
                     $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);

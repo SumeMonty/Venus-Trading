@@ -255,19 +255,19 @@ include('../components/connect.php');
                 filter_data();
             });
 
-            $('#price_range').slider({
-                range: true,
-                min: 20000,
-                max: 65000,
-                values: [20000, 65000],
-                step: 500,
-                stop: function (event, ui) {
-                    $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
-                    $('#hidden_minimum_price').val(ui.values[0]);
-                    $('#hidden_maximum_price').val(ui.values[1]);
-                    filter_data();
-                }
-            });
+            // $('#price_range').slider({
+            //     range: true,
+            //     min: 20000,
+            //     max: 65000,
+            //     values: [20000, 65000],
+            //     step: 500,
+            //     stop: function (event, ui) {
+            //         $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
+            //         $('#hidden_minimum_price').val(ui.values[0]);
+            //         $('#hidden_maximum_price').val(ui.values[1]);
+            //         filter_data();
+            //     }
+            // });
 
         });
     </script>

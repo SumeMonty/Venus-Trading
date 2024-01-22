@@ -63,13 +63,10 @@ if (isset($_POST["action"])) {
     $statement = $conn->prepare($query);
     $statement->execute();
     $result = $statement->fetchAll();
-    //  print_r ($result[0]);
     $total_row = $statement->rowCount();
     $output = '';
-    $qty = 1;
     if ($total_row > 0) {
         foreach ($result as $row) {
-
             $output .= '
                     <form action="" method="post" class="box">
                     <input type="hidden" name="pid" value=' . $row['id'] . '>
