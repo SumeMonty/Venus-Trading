@@ -16,7 +16,27 @@ session_start();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="We procure products in bulk and distribute them to retailers, businesses, or individual customers. We play a crucial role in the supply chain by efficiently managing inventory, and ensuring timely delivery of computer products to meet market demand">
+	<meta name="keyword" content="online laptop store, laptop store in ulhasnagar, laptop store in mumbai, laptop dealer in ulhasnagar, laptop dealer in mumbai, 
+laptop store, 
+wholesale laptop store, 
+it store,
+Multi brand store,
+Multi brand store in mumbai,
+Multi brand store in ulhasnagar,
+MBO,
+laptop dealer,
+notebook store,
+notebook dealer,
+notebook store in mumbai,
+notebook dealer in mumbai,
+notebook store in ulhasnagar,
+notebook dealer in ulhasnagar,
+hp laptops store,
+asus laptops store,
+acer laptops store,
+dell laptops store">
+	<meta name="author" content="Venus Trading Co.">
 
 	<title>Venus Trading</title>
 
