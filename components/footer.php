@@ -9,7 +9,7 @@
 					<div class="col-md-4 col-12 col-sm-12">
 						<div class="footer">
 							<h3 class="footer-title">About Us</h3>
-							<p class="footer-description">We procure products in bulk and distribute them to retailers, businesses, or individual
+							<p class="footer-description">Wholesale and Retail Laptop Dealer in Ulhasnagar and Mumbai. We procure products in bulk and distribute them to retailers, businesses, or individual
 								customers. We play a crucial role in the supply chain by efficiently managing inventory,
 								and ensuring timely delivery of computer products to meet market demand.</p>
 
