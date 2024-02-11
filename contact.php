@@ -73,7 +73,7 @@ if(isset($_POST['send'])){
 <body>
 	<!-- HEADER -->
 	<?php
-	include 'components/header.php';
+	include 'header.php';
 	?>
 	<!-- /HEADER -->
 
@@ -105,11 +105,11 @@ if(isset($_POST['send'])){
 			<!-- row -->
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="breadcrumb-header">Venus trading</h3>
-					<ul class="breadcrumb-tree">
+				<h3 class="breadcrumb-header"><span>V</span>enus <span>T</span>rading <span>C</span>o.</h3>
+					<!-- <ul class="breadcrumb-tree">
 						<li><a href="/">Home</a></li>
 						<li class="active">Contact</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 			<!-- /row -->
