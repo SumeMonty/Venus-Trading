@@ -168,7 +168,7 @@ if (isset($_GET['delete'])) {
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="breadcrumb-header">Venus Trading Co.</h3>
+                <h3 class="breadcrumb-header"><span>V</span>enus <span>T</span>rading <span>C</span>o. <span>Hello <?php $retrieve_user = $conn->prepare("SELECT uname FROM admins WHERE id = ?"); $retrieve_user->execute([$_SESSION['admin_id']]); $username = $retrieve_user->fetchAll(); echo($username[0][0]); ?> 👋</span></h3>
                     <!-- <ul class="breadcrumb-tree">
                         <li><a href="index.php">Home</a></li>
                         <li class="active">Laptop</li>
