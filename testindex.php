@@ -59,7 +59,7 @@ include('components/connect.php');
                                     <!-- <div style="height: 180px; overflow-y: auto; overflow-x: hidden;"> -->
                                         <?php
 
-                                        $query = "SELECT DISTINCT(brand) FROM products WHERE id != '0' ORDER BY id DESC";
+                                        $query = "SELECT name FROM brands ORDER BY id ASC";
                                         $statement = $conn->prepare($query);
                                         $statement->execute();
                                         $result = $statement->fetchAll();
@@ -67,8 +67,8 @@ include('components/connect.php');
                                             ?>
                                             <div class="list-group-item checkbox">
                                                 <label><input type="checkbox" class="common_selector brand"
-                                                        value="<?php echo $row['brand']; ?>">
-                                                    <?php echo $row['brand']; ?>
+                                                        value="<?php echo $row['name']; ?>">
+                                                    <?php echo $row['name']; ?>
                                                 </label>
                                             </div>
                                             <?php
@@ -95,9 +95,7 @@ include('components/connect.php');
 
                                     <?php
 
-                                    $query = "
-                    SELECT DISTINCT(ram) FROM products WHERE id != '0' ORDER BY ram DESC
-                    ";
+                                    $query = "SELECT name FROM ram ORDER BY id ASC";
                                     $statement = $conn->prepare($query);
                                     $statement->execute();
                                     $result = $statement->fetchAll();
@@ -105,8 +103,8 @@ include('components/connect.php');
                                         ?>
                                         <div class="list-group-item checkbox">
                                             <label><input type="checkbox" class="common_selector ram"
-                                                    value="<?php echo $row['ram']; ?>">
-                                                <?php echo $row['ram']; ?> GB
+                                                    value="<?php echo $row['name']; ?>">
+                                                <?php echo $row['name']; ?> GB
                                             </label>
                                         </div>
                                         <?php
@@ -132,9 +130,7 @@ include('components/connect.php');
 
                                     <?php
 
-                                    $query = "
-                    SELECT DISTINCT(processor) FROM products WHERE id != '0' ORDER BY processor DESC
-                    ";
+                                    $query = "SELECT name FROM processor ORDER BY id ASC";
                                     $statement = $conn->prepare($query);
                                     $statement->execute();
                                     $result = $statement->fetchAll();
@@ -142,8 +138,8 @@ include('components/connect.php');
                                         ?>
                                         <div class="list-group-item checkbox">
                                             <label><input type="checkbox" class="common_selector processor"
-                                                    value="<?php echo $row['processor']; ?>">
-                                                <?php echo $row['processor']; ?>
+                                                    value="<?php echo $row['name']; ?>">
+                                                <?php echo $row['name']; ?>
                                             </label>
                                         </div>
                                         <?php
@@ -169,9 +165,7 @@ include('components/connect.php');
 
                                     <?php
 
-                                    $query = "
-                    SELECT DISTINCT(graphics) FROM products WHERE id != '0' ORDER BY graphics DESC
-                    ";
+                                    $query = "SELECT name FROM graphics ORDER BY id ASC";
                                     $statement = $conn->prepare($query);
                                     $statement->execute();
                                     $result = $statement->fetchAll();
@@ -179,8 +173,8 @@ include('components/connect.php');
                                         ?>
                                         <div class="list-group-item checkbox">
                                             <label><input type="checkbox" class="common_selector graphics"
-                                                    value="<?php echo $row['graphics']; ?>">
-                                                <?php echo $row['graphics']; ?>
+                                                    value="<?php echo $row['name']; ?>">
+                                                <?php echo $row['name']; ?>
                                             </label>
                                         </div>
                                         <?php

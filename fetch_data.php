@@ -59,6 +59,14 @@ if (isset($_POST["action"])) {
    AND graphics IN('" . $graphics_filter . "')
   ";
     }
+    
+    if (isset($_POST["search-input"])) {
+        $search_filter = implode("','", $_POST["search-input"]);
+        $query .= "
+   AND name IN('" . $search_filter . "') OR brand IN('" . $search_filter . "') OR ram IN('" . $search_filter . "') OR processor IN('" . $search_filter . "') OR graphics IN('" . $search_filter . "')
+  ";
+    }
+
 
     $statement = $conn->prepare($query);
     $statement->execute();

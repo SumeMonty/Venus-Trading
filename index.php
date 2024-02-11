@@ -81,7 +81,7 @@ session_start();
 <body>
 	<!-- HEADER -->
 	<?php
-	include 'components/header.php';
+	include 'header.php';
 	?>
 	<!-- /HEADER -->
 
@@ -140,7 +140,7 @@ session_start();
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="breadcrumb-header"><span>Venus</span> Trading Co.</h3>
+					<h3 class="breadcrumb-header"><span>V</span>enus <span>T</span>rading <span>C</span>o.</h3>
 					<!-- <ul class="breadcrumb-tree">
 						<li><a href="index.php">Home</a></li>
 						<li class="active">Laptop</li>
