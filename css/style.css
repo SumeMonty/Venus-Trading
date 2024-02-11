@@ -398,17 +398,27 @@ textarea.input {
 
 #breadcrumb .breadcrumb-header {
   font-family: 'Claridge';
-  font-size: 2.5rem;
+  font-size: 3rem;
   display: inline-block;
   color: var(--black);
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 15px;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
 #breadcrumb .breadcrumb-header span {
-  font-size: 4.5rem;
+  font-family: 'Claridge';
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+#breadcrumb .breadcrumb-header span:nth-of-type(4) {
+  margin-left: 1em;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 2.5rem;
+  text-transform: uppercase;
 }
 
 #breadcrumb .breadcrumb-tree {
@@ -2302,6 +2312,7 @@ div.row.filter_data::before {
 
 #footer {
   margin-top: 1rem;
+  margin-bottom: 0;
   background: #15161D;
   color: #B9BABC;
 }

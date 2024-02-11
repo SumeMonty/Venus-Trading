@@ -36,8 +36,7 @@ session_start();
 		hp laptops store,
 		asus laptops store,
 		acer laptops store,
-		dell laptops store"
-	>
+		dell laptops store">
 	<meta name="author" content="Venus Trading Co.">
 
 	<title>Venus Trading</title>

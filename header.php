@@ -72,7 +72,7 @@
 									<option value="ACER">ACER</option>
 									<option value="DELL">DELL</option>
 								</select>
-								<input class="input" name="search-value" placeholder="Search here"
+								<input class="input search-input" name="search-value" placeholder="Search here"
 									value="<?php echo isset($_POST['search-value']) ? htmlspecialchars($_POST['search-value'], ENT_QUOTES) : ''; ?>">
 								<input type="submit" name="search-btn" class="search-btn" value="Search">
 								<!-- <button  class="search-btn">Search</button> -->
@@ -128,3 +128,37 @@
 	</header>
 	<!-- /HEADER -->
 </body>
+
+<script>
+        $(document).ready(function () {
+
+            filter_data();
+
+            function filter_data() {
+                var action = 'fetch_data';
+                var search_input = get_filter('search-input')
+                $.ajax({
+                    url: "fetch_data.php",
+                    method: "POST",
+                    data: { action: action, search_input: search_input },
+                    success: function (data) {
+                        $('.filter_data').html(data);
+                    }
+                });
+            }
+
+            function get_filter(class_name) {
+                var filter = [];
+                $('.' + class_name + ':checked').each(function () {
+                    filter.push($(this).val());
+                });
+                return filter;
+            }
+
+            $('.common_selector').click(function () {
+                filter_data();
+            });
+
+
+        });
+    </script>
