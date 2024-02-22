@@ -54,7 +54,7 @@ include('../components/connect.php');
                                 Brand
                             </button>
                         </h1>
-                        <div id="collapseOne" class="accordion-collapse collapse show"
+                        <div id="collapseOne" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
 
@@ -91,7 +91,7 @@ include('../components/connect.php');
                                 Ram
                             </button>
                         </h1>
-                        <div id="collapseTwo" class="accordion-collapse collapse show"
+                        <div id="collapseTwo" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
 
@@ -128,7 +128,7 @@ include('../components/connect.php');
                                 Processor
                             </button>
                         </h1>
-                        <div id="collapseThree" class="accordion-collapse collapse show"
+                        <div id="collapseThree" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
 
@@ -165,7 +165,7 @@ include('../components/connect.php');
                                 Graphics Card
                             </button>
                         </h1>
-                        <div id="collapseFour" class="accordion-collapse collapse show"
+                        <div id="collapseFour" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
 
