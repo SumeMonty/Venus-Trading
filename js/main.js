@@ -17,11 +17,11 @@
 // 	}
 // })
 
-const mediaQuery = window.matchMedia('(max-width: 850px)')
+// const mediaQuery = window.matchMedia('(max-width: 850px)')
 
-if (mediaQuery.matches) {
-	$(".accordion-collapse").removeClass("show");
-}
+// if (mediaQuery.matches) {
+// 	$(".accordion-collapse").removeClass("show");
+// }
 
 var locationHref = 'index.php?';
 
