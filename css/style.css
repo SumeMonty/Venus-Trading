@@ -1759,6 +1759,11 @@ div.row.filter_data::before {
   width: 100%;
   object-fit: contain;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.filter_data .box .name {
+  cursor: pointer;
 }
 
 .filter_data .box .laptop-series,

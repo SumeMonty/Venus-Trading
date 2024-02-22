@@ -101,7 +101,71 @@ if (isset($_POST['update'])) {
     include 'admin-header.php';
     ?>
     <!-- /HEADER -->
+<!-- NAVIGATION -->
+<nav id="navigation">
+        <!-- container -->
+        <div class="container laptop-container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav nav-pills navigator">
+                    <li class="nav-item active"><a href="">Home</a></li>
+                    <li class="nav-item"><a href="products-table.php">Table</a></li>
+                    <!-- <li class="nav-item"><a href="contact.php">Contact</a></li> -->
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+            <!-- responsive-nav -->
+            <div id="responsive-nav-brand">
+                <!-- NAV -->
+                <form method="POST">
 
+                    <input type="submit" value="asus" id="asus-btn" name="asus-btn" style="display:none;">
+                    <label for="asus-btn" style="cursor: pointer;">
+                        <img src="../img/asus_logo.png" width="75px" alt="">
+                    </label>
+                    <input type="submit" value="hp" id="hp-btn" name="hp-btn" style="display:none;">
+                    <label for="hp-btn" style="cursor: pointer;">
+                        <img src="../img/hp_logo.png" width="75px" alt="">
+                    </label>
+                    <input type="submit" value="acer" id="acer-btn" name="acer-btn" style="display:none;">
+                    <label for="acer-btn" style="cursor: pointer;">
+                        <img src="../img/acer_logo.png" width="70px" alt="">
+                    </label>
+                    <input type="submit" value="dell" id="dell-btn" name="dell-btn" style="display:none;">
+                    <label for="dell-btn" style="cursor: pointer;">
+                        <img src="../img/dell_logo.png" width="50px" style="margin-left: 10px;" alt="">
+                    </label>
+                </form>
+
+                <!-- /NAV -->
+                <!-- </div> -->
+                <!-- /responsive-nav -->
+            </div>
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="lap-breadcrumb" class="section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                <h3 class="breadcrumb-header"><span>V</span>enus <span>T</span>rading <span>C</span>o. <span>Hello <?php $retrieve_user = $conn->prepare("SELECT name FROM admins WHERE id = ?"); $retrieve_user->execute([$_SESSION['admin_id']]); $username = $retrieve_user->fetchAll(); echo($username[0][0]); ?> 👋</span></h3>
+                    <!-- <ul class="breadcrumb-tree">
+                        <li><a href="index.php">Home</a></li>
+                        <li class="active">Laptop</li>
+                    </ul> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /BREADCRUMB -->
     <section class="update-product">
 
 <h1 class="heading">update product</h1>

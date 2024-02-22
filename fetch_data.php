@@ -85,9 +85,9 @@ if (isset($_POST["action"])) {
                     <button class="laptop-series" name="laptop-series">' . $row['make'] . '</button>
                     <!-- <button class="brand-label" name="brand-label">HP</button> -->
 
-                    <img onclick="window.location.href="quick-view.php?pid=' . $row['id'] . '" src="img/' . $row['img'] . '.jpg" alt="">
+                    <img onclick="red_to_qv(\''.$row['id'].'\')" src="img/' . $row['img'] . '.jpg" alt="">
                     <a class="link brand" href="#">' . $row['brand'] . '</a>
-                    <div class="name" onclick="window.location.href="quick-view.php?pid=' . $row['id'] . '">' . ' ' . $row['brand'] . ' ' . $row['make'] . ' ' . $row['img'] . ' ' . $row['description'] . '</div>
+                    <div class="name" onclick="red_to_qv(\''.$row['id'].'\')">' . ' ' . $row['brand'] . ' ' . $row['make'] . ' ' . $row['img'] . ' ' . $row['description'] . '</div>
                     <div class="flex">
                         <div class="price"><span>₹</span>' . $row['price'] . '<span>/-</span>
                         </div>
@@ -122,93 +122,10 @@ if (isset($_POST["action"])) {
         const url = 'https://wa.me/9850145588?text=I%20am%20interested%20in%20buying%20' + brand + '%20'+ make + '%20'+ model + '%20' + desc + '%20(x ' + qty + ')';
   window.open(url, '_blank');
     }
+
+    function red_to_qv(pid) {
+        var qty = document.querySelector('.qty').value;
+        const url = '/quick-view.php?pid=' + pid;
+  window.open(url, '_parent');
+    }
 </script>
-
-
-<?php
-/*
-'
-   <div class="col-sm-4 col-lg-3 col-md-3">
-    <div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-    <img src="img/'. $row['img'] .'.jpg' .'" alt="" class="img-responsive" >
-     <p class="prod-name" align="center"><strong><a href="#">'. $row['brand'] .' ' .$row['make'] .' ' .$row['img'] .' ' .$row['description'] .'</a></strong></p>
-     <h4 style="text-align:center;" class="text-danger" >₹ '. $row['price'] .'/-</h4>
-     <p>Camera : '. $row['brand'].' MP<br />
-     Brand : '. $row['brand'] .' <br />
-     RAM : '. $row['ram'] .' GB<br />
-     Storage : '. $row['ram'] .' GB </p>
-    </div>
-
-   </div>
-
-   ';
-
-
-
-
-
-
-
-
-'
-   <div class="col-sm-4 col-lg-3 col-md-3">
-   <div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-    <img src="img/'. $row['img'] .'.jpg' .'" alt="" class="img-responsive" >
-    <p align="center"><strong><a href="#">'. $row['brand']; $row['make']; $row['description'] .'</a></strong></p>
-    <h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'</h4>
-    <p>Camera : '. $row['brand'].' MP<br />
-    Brand : '. $row['brand'] .' <br />
-    RAM : '. $row['ram'] .' GB<br />
-    Storage : '. $row['ram'] .' GB </p>
-   </div>
-
-  </div>
-   ';
-
-
-
-
-
-'<form action="" method="post" class="box">
-                            <input type="hidden" name="pid" value="$row[\'id\']">
-                            <input type="hidden" name="name"
-                                value="$row[\'brand\'] $row[\'description\']">
-                            <input type="hidden" name="price" value="$row[\'price\']">
-                            <input type="hidden" name="image" value="$row[\'img\']">
-                            <button class="laptop-series" name="laptop-series">
-                                $row[\'make\']
-                            </button>
-                            <!-- <button class="brand-label" name="brand-label">HP</button> -->
-
-                            <img onclick="window.location.href="quick-view.php?pid=$row[\'id\']""
-                                src="img/$row[\'img\'].jpg" alt="">
-                            <a class="link brand" href="#">
-                                $row[\'brand\']
-                            </a>
-                            <div class="name" onclick="window.location.href="quick-view.php?pid=$row[\'id\']"">
-                                $row[\'brand\']
-                                $row[\'make\']
-                                $row[\'img\']
-                                $row[\'description\']
-                            </div>
-                            <div class="flex">
-                                <div class="price"><span>₹</span>
-                                    $row[\'price\']<span>/-</span>
-                                </div>
-                                <input type="number" name="qty" class="qty" min="1" max="99"
-                                    onkeypress="if(this.value.length == 2) return false;" value="1">
-                            </div>
-                            <button type="submit" class="buy-now-btn btn btn-primary" name="buy-now">
-                                <a href="https://wa.me/9850145588?text=I"m%20interested%20in%20buying%20$row[\'brand\']%20$row[\'description\']"
-                                    target="_blank">Buy
-                                    Now</a>
-                            </button>
-                            <button type="submit" class="add-to-cart-btn btn btn-success" name="buy-now">
-                                <a href="" target="_blank">Add To Cart</a>
-                            </button>
-                        </form>
-   ';
-
-*/
-
-?>
