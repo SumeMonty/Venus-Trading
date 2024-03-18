@@ -1,6 +1,6 @@
 <?php
 
-include('components/connect.php');
+include ('components/connect.php');
 
 session_start();
 
@@ -39,6 +39,17 @@ session_start();
 		acer laptops store,
 		dell laptops store">
 	<meta name="author" content="Venus Trading Co.">
+	
+	<meta property="og:title" content="Laptop Store In Mumbai" />
+
+	<meta property="og:description"
+		content="Wholesale and Retail Laptop Dealer in Ulhasnagar and Mumbai. We procure products in bulk and distribute them to retailers, businesses, or individual customers. We play a crucial role in the supply chain by efficiently managing inventory, and ensuring timely delivery of computer products to meet market demand" />
+
+	<meta property="og:image" content="img/venus-black-filled.png" />
+
+	<meta property="og:url" content="https://venustrading.co.in/" />
+
+	<meta property="og:type" content="website" />
 
 	<title>Venus Trading</title>
 
