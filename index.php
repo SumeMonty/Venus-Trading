@@ -16,6 +16,7 @@ session_start();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="Oj6io0tuGXpeife_r2oFoqkXa3l6dYw8EN_EnsyiZk8" />
 	<meta name="description"
 		content="Wholesale and Retail Laptop Dealer in Ulhasnagar and Mumbai. We procure products in bulk and distribute them to retailers, businesses, or individual customers. We play a crucial role in the supply chain by efficiently managing inventory, and ensuring timely delivery of computer products to meet market demand">
 	<meta name="keyword" content="online laptop store, laptop store in ulhasnagar, laptop store in mumbai, laptop dealer in ulhasnagar, laptop dealer in mumbai, 
