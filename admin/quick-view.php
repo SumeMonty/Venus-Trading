@@ -71,7 +71,6 @@ if (isset($_SESSION['user_id'])) {
 				<ul class="main-nav nav navbar-nav">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="Laptop.php">Laptop</a></li>
-					<li><a href="contact.php">Contact</a></li>
 
 				</ul>
 				<!-- /NAV -->
