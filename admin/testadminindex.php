@@ -157,7 +157,7 @@ include('../components/connect.php');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <div class="accordion-item">
                         <h1 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"

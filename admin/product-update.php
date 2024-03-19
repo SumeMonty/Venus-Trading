@@ -168,7 +168,7 @@ if (isset($_POST['update'])) {
     <!-- /BREADCRUMB -->
     <section class="update-product">
 
-<h1 class="heading">update product</h1>
+    <h1 class="heading">update product</h1>
 
 <?php
    $update_id = $_GET['update'];
